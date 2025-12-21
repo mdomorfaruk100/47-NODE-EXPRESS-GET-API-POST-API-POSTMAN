@@ -1,5 +1,8 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
+
+app.use(cors());
 
 const users = ["Asad", 'Moni', 'Sabed', 'Susmita', 'Shohan'];
 
@@ -18,7 +21,6 @@ app.get('/fruits/banana', (req, res) => {
 app.get('/users/:id', (req, res) => {
     const userId = req.params.id;
     const name = users[userId];
-    console.log(req.query);
     res.send({id: userId, name })
 })
 
